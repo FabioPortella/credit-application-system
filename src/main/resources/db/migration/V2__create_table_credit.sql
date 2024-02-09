@@ -14,4 +14,4 @@ ALTER TABLE credit
     ADD CONSTRAINT uc_credit_credit_code UNIQUE (credit_code);
 
 ALTER TABLE credit
-    ADD CONSTRAINT FK_CREDIT_ON_CUSTOMER FOREIGN KEY (customer_id) REFERENCES custumer (id);
+    ADD CONSTRAINT FK_CREDIT_ON_CUSTOMER FOREIGN KEY (customer_id) REFERENCES customer (id);

@@ -1,7 +1,7 @@
 package me.dio.credit.application.system.dto
 
 import me.dio.credit.application.system.entity.Address
-import me.dio.credit.application.system.entity.Custumer
+import me.dio.credit.application.system.entity.Customer
 import java.math.BigDecimal
 
 data class CustomerDto(
@@ -14,7 +14,7 @@ data class CustomerDto(
     val zipCode: String,
     val street: String
 ) {
-    fun toEntity(): Custumer = Custumer(
+    fun toEntity(): Customer = Customer(
         firstName = this.firstName,
         lastName = this.lastName,
         cpf = this.cpf,

@@ -1,9 +1,9 @@
 package me.dio.credit.application.system.service
 
-import me.dio.credit.application.system.entity.Custumer
+import me.dio.credit.application.system.entity.Customer
 
-interface ICustumerService {
-    fun save(custumer: Custumer): Custumer
-    fun findById(id: Long): Custumer
+interface ICustomerService {
+    fun save(customer: Customer): Customer
+    fun findById(id: Long): Customer
     fun delete(id: Long)
 }

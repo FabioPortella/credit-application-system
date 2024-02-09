@@ -5,7 +5,7 @@ import java.math.BigDecimal
 
 @Entity
 // @Table(name = "Cliente")
-data class Custumer(
+data class Customer(
     @Column(nullable = false) var firstName: String = "",
     @Column(nullable = false) var lastName: String = "",
     @Column(nullable = false, unique = true) val cpf: String,
