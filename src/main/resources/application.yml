@@ -1,7 +1,7 @@
 spring:
   datasource:
     url: jdbc:h2:mem:credit_application_system_db
-    username: cami
+    username: ports
     password: 1234
   jpa:
     show-sql: true
