@@ -23,7 +23,7 @@ class CreditResource(
     private val creditService: CreditService
 ) {
     @PostMapping
-    fun saveCredit(@RequestBody creditDto: CreditDto): ResponseEntity<String>{
+    fun saveCredit(@RequestBody creditDto: CreditDto): ResponseEntity<String> {
         val credit: Credit = this.creditService.save(creditDto.toEntity())
         return ResponseEntity
             .status(HttpStatus.CREATED)
@@ -44,7 +44,7 @@ class CreditResource(
     fun findByCreditCode(
         @RequestParam(value = "CustomerId") customerId: Long,
         @PathVariable creditCode: UUID
-    ): ResponseEntity <CreditView> {
+    ): ResponseEntity<CreditView> {
         val credit: Credit = this.creditService.findByCreditCode(customerId, creditCode)
         return ResponseEntity
             .status(HttpStatus.OK)
