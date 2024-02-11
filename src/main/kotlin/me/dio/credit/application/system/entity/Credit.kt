@@ -14,7 +14,7 @@ import java.time.LocalDate
 import java.util.*
 
 @Entity
-@Table(name = "Credito")
+//@Table(name = "Credito")
 data class Credit (
     @Column(nullable = false, unique = true) var creditCode: UUID = UUID.randomUUID(),
     @Column(nullable = false) val creditValue: BigDecimal = BigDecimal.ZERO,
