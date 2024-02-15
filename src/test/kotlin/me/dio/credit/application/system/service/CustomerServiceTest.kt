@@ -7,6 +7,7 @@ import io.mockk.junit5.MockKExtension
 import io.mockk.verify
 import me.dio.credit.application.system.entity.Address
 import me.dio.credit.application.system.entity.Customer
+import me.dio.credit.application.system.exception.BusinessException
 import me.dio.credit.application.system.repository.CustomerRepository
 import me.dio.credit.application.system.service.impl.CustomerService
 import org.assertj.core.api.Assertions
@@ -53,6 +54,21 @@ class CustomerServiceTest {
             .isExactlyInstanceOf(Customer::class.java)                  // verifica se retornou uma classe do tipo Customer
         Assertions.assertThat(actual).isSameAs(fakeCustomer)            // verifica se retornou um Customer
         verify(exactly = 1) { customerRepository.findById(fakeid) }     // verifica se retorna somente uma vez
+    }
+
+    @Test
+    fun `should not find customer by invalid id and throw BusinessException`() {
+        //given
+        val fakeid: Long = Random().nextLong()
+        every { customerRepository.findById(fakeid) } returns Optional.empty()
+
+        //when
+        //then
+        Assertions.assertThatExceptionOfType(BusinessException::class.java)
+            .isThrownBy { customerService.findById(fakeid) }
+            .withMessage("Id $fakeid not found")
+        verify(exactly = 1) { customerRepository.findById(fakeid) }
+
     }
 
     private fun buildCustomer(
