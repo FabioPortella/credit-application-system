@@ -28,7 +28,7 @@ class CreditServiceTest {
     fun `should create credit`() {
         //given
         val fakeCredit: Credit = buildCredit()
-        val customerId: Long = 1L
+        val customerId = 1L
         every { customerService.findById(customerId) } returns fakeCredit.customer!!
         every { creditRepository.save(fakeCredit) } returns fakeCredit
 
