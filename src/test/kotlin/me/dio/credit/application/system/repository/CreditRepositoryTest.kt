@@ -36,8 +36,8 @@ class CreditRepositoryTest {
     @Test
     fun `should find credit by credit code`() {
         //given
-        val creditCode1 = UUID.fromString("aa547c0f-9a6a-451f-8c89-afddce916a29")
-        val creditCode2 = UUID.fromString("49f740be-46a7-449b-84e7-ff5b7986d7ef")
+        val creditCode1 = UUID.fromString("f3075bf8-1232-44bb-b160-fe16b579a64f")
+        val creditCode2 = UUID.fromString("8575cc75-b660-44b8-9edf-be96a99f39b9")
         credit1.creditCode = creditCode1
         credit2.creditCode = creditCode2
         //when
@@ -53,7 +53,7 @@ class CreditRepositoryTest {
     @Test
     fun `should find all credits by customer` () {
         //given
-        val customerId: Long = 1L
+        val customerId = 1L
 
         //when
         val creditList: List<Credit> = creditRepository.findAllByCustomerId(customerId)
@@ -67,7 +67,7 @@ class CreditRepositoryTest {
 
     private fun buildCredit(
         creditValue: BigDecimal = BigDecimal.valueOf(500.0),
-        dayFirstInstallment: LocalDate = LocalDate.of(2023, Month.APRIL, 22),
+        dayFirstInstallment: LocalDate = LocalDate.of(2024, Month.MARCH, 18),
         numberOfInstallments: Int = 5,
         customer: Customer
 
@@ -80,7 +80,7 @@ class CreditRepositoryTest {
 
     private fun buildCustomer(
         firstName: String = "Cami",
-        lastName: String = "Cavalcante",
+        lastName: String = "Ports",
         cpf: String = "28475934625",
         income: BigDecimal = BigDecimal.valueOf(1000.0),
         email: String = "camila@gmail.com",
